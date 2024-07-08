@@ -1,0 +1,21 @@
+<캐릭터 달리기, 점프>
+
+리지드랑, 캡슐콜라이더 캐릭터에 넣음
+freeze rotation 체크, interpolate를 interpolate로 바꿔줌, mass 70
+
+animatior창에서 bool(isSprint)변수 생성,
+
+create state - empty(Sprint:달리기), maketransition을 blendtree랑 연결하고 isSprint true/false + hasExit체크해제
+
+--달리기애니메이션 스크립트 추가--
+
+animatior창에서 trigger(IdleJumpTrigger)변수 생성,
+
+create state - empty(IdleJump), maketransition으로 blendtree랑 연결
+moveidle -> ideljump; hasExit체크해제, IdleJumpTrigger
+
+animatior창에서 trigger(RunningJumpTrigger)변수 생성,
+create state - empty(MovingJump), maketransition을 blendtree랑 연결
+move&idle : hasexittime체크해제, RunningJumpTrigger
+
+sprint->movingju,mp : 엑싵타임체크해제, RunningJumpTrigger
